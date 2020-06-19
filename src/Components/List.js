@@ -9,6 +9,7 @@ class List extends React.Component {
             items: props.items,
         };
     }
+    
     render(props) {
         return (
             <>

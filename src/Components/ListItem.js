@@ -3,17 +3,25 @@ import React from 'react';
 import Checkbox from '@material-ui/core/Checkbox';
 
 class ListItem extends React.Component {
-
-    handleCheckboxChange(option) {
-        console.log('handlinggg')
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            isChecked: false,
+        };
     }
 
+    handleCheckboxChange = () => {
+        this.setState(prevState => ({
+            isChecked: !prevState.isChecked
+        }));
+    }
 
     render() {
         return (
             <>
                 <li key={this.props.item.id} style={{
-                    textDecoration: this.props.item.checked ? 'line-through' : 'none',
+                    textDecoration: this.state.isChecked ? 'line-through' : 'none',
                 }}>
                     <span >{this.props.item.name}</span>
                     <Checkbox
